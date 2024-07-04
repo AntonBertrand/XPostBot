@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('about:blank');
+  await page.goto('https://x.com/login');
+  await page.goto('https://twitter.com/x/migrate?tok=7b2265223a222f6c6f67696e222c2274223a313731393837323633387d8f9a293bbc5d3083f5b317170f35085d');
+  await page.goto('https://x.com/x/');
+  await page.goto('https://twitter.com/x/migrate?tok=7b2265223a222f782f222c2274223a313731393837323636387d0b47db380398832347c9ac51d8f802da');
+  await page.goto('https://x.com/x/?mx=2');
+  await page.goto('https://x.com/x/');
+  await page.getByTestId('login').click();
+  await page.locator('label div').nth(3).click();
+  await page.getByLabel('Phone, email address, or').fill('AlessaRubii');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('Password', { exact: true }).fill('BabyPoo123!');
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByTestId('LoginForm_Login_Button').click();
+  await page.goto('https://x.com/x/?mx=2');
+  await page.goto('https://x.com/x/');
+  await page.getByTestId('AppTabBar_Home_Link').click();
+  await page.getByTestId('xMigrationBottomBar').click();
+  await page.locator('#layers > div > div > div > div > div > div > div > div > div > div > div > div > div').first().click();
+  await page.getByTestId('SideNav_NewTweet_Button').click();
+  await page.getByRole('button', { name: 'Add photos or video' }).click();
+  await page.getByRole('button', { name: 'Add photos or video' }).setInputFiles('twitter1.mp4');
+  await page.getByRole('button', { name: 'Add photos or video' }).click();
+  await page.getByRole('button', { name: 'Add photos or video' }).setInputFiles('twitter1.mp4');
+  await page.getByRole('button', { name: 'Add photos or video' }).click();
+  await page.getByRole('button', { name: 'Add photos or video' }).setInputFiles('@Spicy_Latinas[Telegram] (139).mp4');
+  await page.getByRole('button', { name: 'Add photos or video' }).click();
+  await page.getByTestId('app-bar-close').click();
+});
